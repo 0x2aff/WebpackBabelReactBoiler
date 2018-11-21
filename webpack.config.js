@@ -1,7 +1,7 @@
 import path from 'path';
-import htmlWebpackPlugin from 'html-webpack-plugin';
-import uglifyJsPlugin from 'uglifyjs-webpack-plugin';
-import cleanWebpackPlugin from 'clean-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
 
 module.exports = {
     entry: {
@@ -22,7 +22,7 @@ module.exports = {
     },
     optimization: {
         minimize: true,
-        minimizer: [new uglifyJsPlugin({
+        minimizer: [new UglifyJsPlugin({
             sourceMap: true,
             cache: true,
             parallel: true,
@@ -69,8 +69,8 @@ module.exports = {
         ]
     },
     plugins: [
-        new cleanWebpackPlugin(),
-        new htmlWebpackPlugin({
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src', 'index.html')
         })
     ]
